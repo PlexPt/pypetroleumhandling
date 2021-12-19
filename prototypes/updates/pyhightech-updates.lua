@@ -1,3 +1,5 @@
+local fun = require("__pycoalprocessing__/prototypes/functions/functions")
+
 require("prototypes.buildings.pumpjack-hightech")
 
 
@@ -50,7 +52,7 @@ RECIPE('benzene-aromatics'):change_category('cracker')
 
 ----RECIPES----
 
-RECIPE("scrude-to-crude-oil"):add_ingredient({type = "fluid", name = "propene", amount = 50})
+--RECIPE("scrude-to-crude-oil"):add_ingredient({type = "fluid", name = "propene", amount = 50})
 RECIPE("rubber-03"):add_ingredient({type = "item", name = "phenol", amount = 4})
 RECIPE("styrene"):replace_ingredient("syngas", "benzene"):replace_ingredient("aromatics", "ethylene"):change_category("fbreactor")
 RECIPE("chloroethanol"):replace_ingredient("methanol", "ethylene")
@@ -66,7 +68,32 @@ RECIPE("ethylene-chlorohydrin"):add_ingredient({type = "fluid", name = "ethylene
 
 ----EXCLUSIVE RECIPES----
 
+RECIPE {
+    type = "recipe",
+    name = "phenol",
+    category = "distilator",
+    enabled = false,
+    energy_required = 4,
+    ingredients = {
+        {type = "fluid", name = "carbolic-oil", amount = 100},
+        {type = "fluid", name = "carbon-dioxide", amount = 1},
+    },
+    results = {
+        {type = "fluid", name = "methane", amount = 120},
+    },
+    main_product = "methane",
+    icon = "__pyhightechgraphics__/graphics/icons/methane.png",
+    icon_size = 32,
+    subgroup = "py-hightech-fluids",
+    order = "a"
+}:add_unlock("placeholder")
 
+if mods["pyrawores"] then
+    RECIPE('phenol'):add_ingredient({type = "item", name = "sodium-hydroxide", amount = 5})
+    fun.add_result("phenol", {type = "item", name = 'sodium-carbonate', amount = 5})
+end
+
+--[[
 RECIPE {
     type = "recipe",
     name = "scrude-to-methane",
@@ -86,7 +113,9 @@ RECIPE {
     subgroup = "py-hightech-fluids",
     order = "a"
 }:add_unlock("scrude")
+]]--
 
+--[[
 RECIPE {
     type = "recipe",
     name = "extract-ammonia-scrude",
@@ -107,6 +136,7 @@ RECIPE {
     subgroup = "py-hightech-fluids",
     order = "a1"
 }:add_unlock("scrude")
+]]--
 
 RECIPE {
     type = "recipe",
@@ -513,7 +543,7 @@ RECIPE {
 
 if mods["pyfusionenergy"] then
 
-	RECIPE("scrude-to-methane"):add_ingredient({type = "fluid", name = "vacuum", amount = 100})
+	--RECIPE("scrude-to-methane"):add_ingredient({type = "fluid", name = "vacuum", amount = 100})
 	RECIPE("extract-ammonia-scrude"):replace_ingredient("nichrome", "molybdenum-plate")
 
     RECIPE {

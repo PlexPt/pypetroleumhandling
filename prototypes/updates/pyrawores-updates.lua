@@ -104,9 +104,9 @@ RECIPE("ethylene-glycol"):change_category("scrubber")
 RECIPE("py-tank-10000"):replace_ingredient("iron-plate", "duralumin"):replace_ingredient("steel-plate", "lead-plate")
 RECIPE("bitumen-to-oil"):add_ingredient({type = "fluid", name = "hydrogen", amount = 150})
 RECIPE("bitumen-to-oil2"):add_ingredient({type = "fluid", name = "hydrogen", amount = 100})
-RECIPE("bitumen-to-scrude"):replace_ingredient("chromium", "sncr-alloy"):add_ingredient({type = "fluid", name = "hydrogen", amount = 100})
-RECIPE("tar-to-scrude"):replace_ingredient("chromium", "ticl4")
-RECIPE("extract-sulfur-scrude"):replace_ingredient("copper-plate", "nickel-plate")
+--RECIPE("bitumen-to-scrude"):replace_ingredient("chromium", "sncr-alloy"):add_ingredient({type = "fluid", name = "hydrogen", amount = 100})
+--RECIPE("tar-to-scrude"):replace_ingredient("chromium", "ticl4")
+--RECIPE("extract-sulfur-scrude"):replace_ingredient("copper-plate", "nickel-plate")
 RECIPE("small-parts-02"):add_ingredient({type = "item", name = "duralumin", amount = 1}):add_ingredient({type = "item", name = "glass", amount = 1}):add_ingredient({type = "item", name = "titanium-plate", amount = 2}):add_ingredient({type = "item", name = "tin-plate", amount = 1}):replace_ingredient("steel-plate", "stainless-steel")
 RECIPE("small-parts-03"):add_ingredient({type = "item", name = "aluminium-plate", amount = 2}):add_ingredient({type = "item", name = "glass", amount = 2}):add_ingredient({type = "item", name = "tin-plate", amount = 3}):replace_ingredient("steel-plate", "super-steel")
 RECIPE("polybutadiene"):replace_ingredient("copper-plate", "titanium-plate")
@@ -240,6 +240,7 @@ RECIPE {
     order = "zaa"
 }:add_unlock("oil-machines-mk01")
 
+--[[
 RECIPE {
     type = "recipe",
     name = "scrude-to-hydrogen",
@@ -259,7 +260,9 @@ RECIPE {
     subgroup = "py-petroleum-handling-scrude-recipes",
     order = "a"
 }:add_unlock("scrude"):add_ingredient({type = "fluid", name = "vacuum", amount = 100})
+]]--
 
+--[[
 RECIPE {
     type = "recipe",
     name = "extract-nitrogen-scrude",
@@ -280,6 +283,7 @@ RECIPE {
     subgroup = "py-petroleum-handling-scrude-recipes",
     order = "a"
 }:add_unlock("scrude")
+]]--
 
 RECIPE {
     type = "recipe",
@@ -770,48 +774,6 @@ RECIPE {
     subgroup = "py-combustion",
     order = "k"
 }:add_unlock("energy-2")
-
-RECIPE {
-    type = "recipe",
-    name = "oil-breakdown-2",
-    category = "distilator",
-    enabled = false,
-    energy_required = 4,
-    ingredients = {
-        {type = "fluid", name = "crude-oil", amount = 400},
-        {type = "fluid", name = "coke-oven-gas", amount = 70},
-    },
-    results = {
-        {type = "fluid", name = "residual-oil", amount = 150},
-        {type = "fluid", name = "low-distillate", amount = 150},
-        {type = "fluid", name = "medium-distillate", amount = 150},
-        {type = "fluid", name = "high-distillate", amount = 150},
-    },
-    main_product = "residual-oil",
-    subgroup = "py-petroleum-handling-fluids",
-    order = "a"
-}:add_unlock("coke-mk02")
-
-RECIPE {
-    type = "recipe",
-    name = "tar-breakdown-2",
-    category = "distilator",
-    enabled = false,
-    energy_required = 4,
-    ingredients = {
-        {type = "fluid", name = "tar", amount = 650},
-        {type = "fluid", name = "coke-oven-gas", amount = 70},
-    },
-    results = {
-        {type = "fluid", name = "residual-oil", amount = 150},
-        {type = "fluid", name = "low-distillate", amount = 150},
-        {type = "fluid", name = "medium-distillate", amount = 150},
-        {type = "fluid", name = "high-distillate", amount = 150},
-    },
-    main_product = "residual-oil",
-    subgroup = "py-petroleum-handling-fluids",
-    order = "a"
-}:add_unlock("coke-mk02")
 
 RECIPE {
     type = "recipe",

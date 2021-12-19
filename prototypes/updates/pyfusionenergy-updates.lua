@@ -1,8 +1,10 @@
 --TECHNOLOGY--
 
-RECIPE('vacuum'):remove_unlock('diamond-mining'):set_enabled(true)
+RECIPE('vacuum'):remove_unlock('diamond-mining'):add_unlock('rubber')
 
 --BUILDINDS--
+
+RECIPE("vacuum-pump-mk01"):remove_unlock('advanced-mining-facilities'):add_unlock('rubber')
 
 RECIPE('pressured-air'):remove_unlock('helium-processing'):add_unlock('rubber')
 
@@ -69,8 +71,8 @@ RECIPE('nmf-mk02'):add_ingredient({type = "item", name = "small-parts-01", amoun
 ----RECIPES----
 
 RECIPE("agzn-alloy"):remove_unlock('fusion-mk03'):add_unlock('oil-sands')
-RECIPE("scrude-to-natural-gas"):add_ingredient({type = "fluid", name = "vacuum", amount = 100})
-RECIPE("scrude-to-light-oil"):add_ingredient({type = "fluid", name = "vacuum", amount = 100})
+--RECIPE("scrude-to-natural-gas"):add_ingredient({type = "fluid", name = "vacuum", amount = 100})
+--RECIPE("scrude-to-light-oil"):add_ingredient({type = "fluid", name = "vacuum", amount = 100})
 RECIPE("carbon-black"):add_ingredient({type = "fluid", name = "vacuum", amount = 100})
 RECIPE("carbon-black-2"):add_ingredient({type = "fluid", name = "vacuum", amount = 100})
 RECIPE("small-parts-03"):replace_ingredient("lubricant", "grease")
@@ -208,25 +210,6 @@ RECIPE {
     subgroup = "py-petroleum-handling-fluids",
     order = "a"
 }:add_unlock("oil-machines-mk03"):replace_ingredient("chromium", "sncr-alloy")
-
-RECIPE {
-    type = "recipe",
-    name = "kerogen-3",
-    category = "kerogen",
-    energy_required = 15,
-    ingredients = {
-        {type = "fluid", name = "hot-air", amount = 1000},
-        {type = "fluid", name = "vacuum", amount = 500},
-        {type = "item", name = "coke", amount = 10},
-        {type = "item", name = "super-alloy", amount = 2},
-    },
-    results = {
-        {type = "item", name = "kerogen", amount = 500},
-    },
-    main_product = "kerogen",
-    subgroup = "py-petroleum-handling-recipes",
-    order = "a"
-}:add_unlock("kerogen")
 
 --moving fusion to space
 --[[

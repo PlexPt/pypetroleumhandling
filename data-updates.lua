@@ -1,5 +1,6 @@
 require("__stdlib__/stdlib/data/data").Util.create_data_globals()
 
+require("prototypes/updates/base-updates")
 require("prototypes/updates/pycoalprocessing-updates")
 require("prototypes/updates/pyfusionenergy-updates")
 require("prototypes/updates/pyindustry-updates")

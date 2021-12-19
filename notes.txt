@@ -1,0 +1,22 @@
+
+carbon/hydrogen ratio orders higher is better
+1. natural gas
+2. light crude oil
+4. kerogen
+5. bitumen
+6. wood
+7. lignite
+8. bitumenius coal
+9. anthersite coal
+
+
+TODO: continue sorting recipes and need to still handle all distillates
+
+
+naphtha is used for gasoline and made into isoprene which is used for natural rubber
+
+Pyrolysis residual oils are tarlike byproducts
+of the steam cracking of naphtha and gas oil to
+produce alkenes
+
+with pyht active add pitch to graphite rods

@@ -1,3 +1,15 @@
+local fun = require("__pycoalprocessing__/prototypes/functions/functions")
+
+--disabled recipes
+RECIPE("tar-oil"):remove_unlock('coal-processing-3'):set_fields{hidden = true}
+RECIPE("sulfur-crudeoil"):remove_unlock('desulfurization'):set_fields{hidden = true}
+RECIPE("sulfur-heavyoil"):remove_unlock('desulfurization'):set_fields{hidden = true}
+RECIPE("sulfur-lightoil"):remove_unlock('desulfurization'):set_fields{hidden = true}
+RECIPE("sulfur-petgas"):remove_unlock('desulfurization'):set_fields{hidden = true}
+RECIPE("creosote"):remove_unlock('coal-processing-1'):set_fields{hidden = true}
+RECIPE("tailings-copper-iron"):remove_unlock('fluid-separation'):set_fields{hidden = true}
+RECIPE("tailings-borax-niobium"):remove_unlock('fluid-separation'):set_fields{hidden = true}
+
 --BUILDINDS--
 
 RECIPE("advanced-foundry-mk01"):add_ingredient({type = "item", name = "small-parts-01", amount = 10})
@@ -20,6 +32,33 @@ end
 --log(serpent.block(data.raw["assembling-machine"]["advanced-foundry-mk01"]))
 
 RECIPE("stone-distilation"):remove_unlock('coal-processing-1')
+
+RECIPE("coal-briquette"):replace_ingredient('tar', 'pitch')
+
+--update tar quenching
+RECIPE {
+    type = "recipe",
+    name = "tar-quenching",
+    category = "quenching-tower",
+    enabled = false,
+    energy_required = 2,
+    ingredients = {
+        {type = "fluid", name = "tar", amount = 500},
+        {type = "fluid", name = "water", amount = 500}
+    },
+    results = {
+        {type = "fluid", name = "dirty-water-heavy", amount = 500},
+        {type = "fluid", name = "flue-gas", amount = 150},
+        {type = "fluid", name = "water-saline", amount = 250},
+        {type = "item", name = "soot", amount = 2}
+    },
+    icons = {
+        {icon = "__pycoalprocessinggraphics__/graphics/icons/dirty-water.png", icon_size = 32}
+    },
+    icon_size = 32,
+    subgroup = "py-quenching-ores",
+    order = "tailings-a"
+}:add_unlock("fluid-separation")
 
 --parts2
 
@@ -246,6 +285,7 @@ RECIPE {
     order = "k"
 }:add_unlock("energy-2")
 
+--[[
 RECIPE {
     type = "recipe",
     name = "extract-olefin-scrude",
@@ -266,3 +306,4 @@ RECIPE {
     subgroup = "py-syngas",
     order = "a"
 }:add_unlock("scrude")
+]]--
