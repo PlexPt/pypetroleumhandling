@@ -35,6 +35,8 @@ RECIPE("stone-distilation"):remove_unlock('coal-processing-1')
 
 RECIPE("coal-briquette"):replace_ingredient('tar', 'pitch')
 
+RECIPE("bone-solvent"):replace_ingredient('olefin', 'aromatics')
+
 --update tar quenching
 RECIPE {
     type = "recipe",
